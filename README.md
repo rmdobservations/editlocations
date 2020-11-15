@@ -25,9 +25,11 @@ Points can be shown on a map along with a slide show of images.
 + usefulprefix.json
 
 ### In directory with fotos, 
-+ GPStoJSON.sh usefulprefix description at the command line, i.e. `GPStoJSON.sh meulunterenpad beautifulwalk`  
++ GPStoJSON.sh usefulprefix description at the command line,  
+i.e. `GPStoJSON.sh meulunterenpad beautifulwalk`  
 + Check that json file and thumb file have been created.  
-+ Copy json file and thumb directory to working directory: i.e. `cp -fR meulunterenpad* (localdirectorypath)/editlocations/data/json/`
++ Copy json file and thumb directory to working directory:   
+i.e. `cp -fR meulunterenpad* (localdirectorypath)/editlocations/data/json/`
 
 
 ### In local Browser
@@ -41,8 +43,8 @@ There are several cases where something goes wrong with the geolocation. These a
 | -- | -- | -- | -- | -- | 
 | EXIF geolocation and date | 20190831_000353.jpg | Yes| Yes| GPStoJSON.sh |
 | NO geolocation but EXIF date | 20180512_142458.jpg | No | Yes | GPStoJSON.sh with dummy long and lat |
-| wrong geolocation but date is known | mybirthday.jpg | na |  No | Yes GPStoJSON.sh with dummy long and lat |
-| no date, no geo | statenisland.png | No | No | Yes GPStoJSON.sh with dummy long and lat and dummy date |
+| wrong geolocation but date is known | mybirthday.jpg | na |  No | GPStoJSON.sh with dummy long and lat |
+| no date, no geo | statenisland.png | No | No | GPStoJSON.sh with dummy long and lat and dummy date |
 
 The dummy locations can be corrected in the `editpoints.html` tool. Note that this is different from some tools which allow creating a point from within Openlayers. Rather than writing a new tool  I just need to move the points. 
 
