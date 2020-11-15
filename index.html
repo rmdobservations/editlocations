@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Shift Locations</title>
+<meta name="generator" content="Bluefish 2.2.11" >
+<meta name="author" content="Rose Dlhopolsky" >
+<meta name="date" content="2020-11-06T17:02:48+0100" >
+<meta name="copyright" content="">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+<meta http-equiv="content-style-type" content="text/css">
+<meta http-equiv="expires" content="0"> 
+<link href="css/style.css" rel="stylesheet" type="text/css"> 
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+</head>
+<body>
+<a name="top"></a>
+<h2>Welcome to shift locations</h2>
+
+
+
+<a name="jsonreadme"></a>
+
+
+  <h2>Edit JSON locations</h2>
+  <p>Edit check locations to work for json.</p>
+ 
+<p>Cameras now have GPS which store the location at which the photos are made. 
+I extract the geographic coordinates using <a href="#exiftools">exiftools</a>. 
+This information is written to a JSON file. This file will be read by <a href="#openlayers">OpenLayers</a> and the points will 
+be placed on a map made from  <a href="#openstreetmap">OpenStreetMap</a> tiles. </p>
+
+<h3>Privacy Caution</h3>
+Some information is sensitive and should not be published. For example, a photo of a rare species should not reveal the location. 
+
+<h2>Work Flow</h2>
+
+<p>This website describes the workflow.  </p>
+<h3>Should have this structure at end </h3>
+
+<ul><li>directory: <code><i>usefulprefix</i>_thumb</code></li>
+<li><code><i>usefulprefix</i>.json</code></li></ul>
+
+<p><ol>
+	<li>In directory with fotos, 
+	<ol>
+	<li>If there are videos, follow these instructions  <code><a href="#gpsvideo">extractFrame</a> 
+ </code> 
+	at the command line</li>
+	<li><code><a href="#gpstojson">GPStoJSON.sh</a> 
+	&lt;usefulprefix&gt; &lt;description&gt; </code> 
+	at the command line</li>
+	<li>Check that json file and thumb file have been created.</li>	
+	<li>Copy json file and thumb directory i.e.</li>
+<ul>
+	<li><code>GPStoJSON.sh meulunterenpad</code></li>
+	<li><code>cp -fR meulunterenpad* 
+	~/projects/github/rmdobservations.github.io/shiftlocations/data/json/
+</code></li>
+
+</ul>
+</ol> 
+	<li>Directory <code> data/original</code> is HARD CODED in the files.</li>
+	<li>Run <code><a href="editpoints.html" target="_blank">editpoints.html</a></code>  from main server directory in Browser.</li>
+	<li>If points are all in the expected location, copy JSON file to folder data/json. This file can be used in subsequent <a href="#openlayers">OpenLayers</a> maps.</li>
+</ol>. </p>
+<p>There are several cases where something goes wrong with the geolocation. These are presented in Table <a href="#table1">Table 1</a>.</p>
+
+
+<table width='80%'>
+<tr>
+<!-- <col style="width:5%">
+        <col style="width:20%">
+        <col style="width:20%"> -->
+<th>Case</th>
+<th>example</th>
+<th>title is date</th>
+<th>EXIF geolocation</th>
+<th>EXIF date-time</th>
+<th>shell program to run</th>
+</tr>
+<tr><td>foto with geolocation and date</td><td>20190831_000353.jpg</td><td>yes</td><td>Yes</td><td>Yes</td><td>GPStoJSON.sh</td></tr>
+<tr><td>foto with NO geolocation but date</td><td>20180512_142458.jpg</td><td>yes</td><td>No</td><td>Yes</td><td>GPStoJSON.sh with dummy long and lat, repair with 
+<a href="editpoints.html" target="_blank">editpoints.html</a></td></tr>
+<tr><td>foto with wrong geolocation but date is known</td><td></td><td>yes</td><td>No</td><td>Yes</td><td>GPStoJSON.sh with dummy long and lat, repair with 
+<a href="editpoints.html" target="_blank">editpoints.html</a></td></tr>
+
+
+<tr><td>Foto with title is NOT date, no geo</td><td>statenisland.png</td><td>No</td><td>No</td><td>No</td><td><a href="server/draw-points.html" target="_blank">draw-points.html</a></td></tr>
+</table>
+<h3>Check Geolocation with <a href="checkpoints.html" target="_blank">checkpoints</a></h3>
+<p>Start with information about photograph. Depending on the source (camera,scan, download) there will be different geolocations and dates. Fotos  made with magnifying glass on phone have an accurate time but no geolocation data. Those fotos with no geopgraphical information will be given a default location. At the moment, this is the Houten train station. Best to pick some location central to the trip. </p>
+
+...
+<h2>Albums from Flickr</h2>
+<p>Need to run locally writeSetid.html</p>
+<p>php writes json format. url and title of photo (filename without extension). </p>
+<h2>Tools and software</h2>  
+<p>This software is used to create the maps. The photograph website Flickr is where I store my photos on-line.  </p>
+<a href="#top">Back to top of page</a>
+
+<table>
+<tr>
+<td>Name</td>
+<td>Usage</td>
+<td>Notes</td>
+</tr>
+<tr>
+<td><a name="exiftools" href="https://exiftool.org/" target="_blank" >exiftool</a></td>
+<td>extracting geographical information from photos</td>
+<td></td>
+</tr>
+<tr>
+<td><a name="bash" href="https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29" 
+target="_blank">Bash Unix Shell</a> </td>
+<td>command line tool to be used with exiftools.</td>
+<td></td>
+</tr>
+<tr>
+<td><a name="openlayers" href="https://openlayers.org/en/v4.6.5/doc/" target="_blank">Openlayers</a> 3 (v4.6.5)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a name = "openstreetmap" href="https://www.openstreetmap.org" target="_blank">OpenStreetMap</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a name="flickr" href="https://www.flickr.com/" target="_blank">Flickr</a> </td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a name="convert" href="https://www.imagemagick.org" target="_blank">Imagemagick</a> </td>
+<td></td>
+<td>Create thumbnails</td>
+</tr>
+</table>
+<a name="gpsvideo"></a>
+<h3>Videos</h3>
+<p>Done on 18 September2020, corrected on 23 september</p>
+<p>This is a bit tricky. GPS_extractFrame.sh extracts the first frame. But this is not always the frame in which the butterfly is to be found. Use this command to extract the frames and examine each image.
+<pre>ffmpeg -i 20200915_121347.mp4 -r 1/1 frames/$filename%03d.jpg</pre>
+
+</p>
+<p>Then run GPStoJSON.sh on the best jpg (which might not yet contain the geo data TBD)</p>
+<p>Using ffmpeg to extract 1 jpg image from a mp4 video. Use exiftools to copy metadata (geocoordinates) 
+from video to that 1 image. Shell program GPS_extractFrame.sh does this. If resulting file is empty, 
+see the notes in the shell program. No allowance for video and fotos with same time signature. Hoping at least a few seconds separate them. 
+  </p>
+  <p>Should I call GPS_extractFrame separately or call it from within GPStoJSON.sh? Leave it as an extra step for now.</p>
+  
+  <p>Size of images are 4128x3096. Size of frames from video are 1080x1920. The reduced images (in thumb directory)  have dimensions 135x180 and 101x180 respectively. GPStoJSON.sh uses <code><b>convert $filename -auto-orient -thumbnail 250x180 -unsharp 0x.5 $thumbdir$filename</b></code>. That is good. If it were a percentage I would be more in trouble.</p>
+  <p>This really needs to be streamlined. The geocoordinates have to be written to the best frame of the video. Then the GPStoJson will take care of everything else.</p>
+  <a name="gpstojson"></a>
+  <h2>Convert GPS to json format</h2>
+  <p>File is located in /bin or in folder with images. </p>
+<a name="gpxreadme"></a>
+  <h2>Edit GPX locations</h2>
+  <p>If needed to plot path in google maps, need to make gpx file.Google maps did not accept my gpx and had to convert it to kml using this nice <a href="https://kml2gpx.com/" target="_blank">website</a>. From there I trace the route we walked, with the help of the foto locations. </p>
+  <p>Basic scenario is that some of locations are not correct. 
+  Sometimes a tree or a tunnel interferes with the GPS signal and the incorrect coordinates are written to the metadata of the image. 
+  This application reads these GPS coordinates and creates a json file and thumbnail file with smaller images. and plots the points. 
+  These points can be visually inspected (human who took picture) and selected with a left click (icon turns blue). Then the icon can be dragged to the estimated location of the image.</p>
+  <a name="debugreadme"></a>
+  <h2>Browser debug Php</h2>
+<p>Just found, look under XHR requests. Response Payload.</p>
+<p><ul><li>Open an already existing file in  <code>url: 'data/original'</code> </li> 
+<li>move points to correct spot.</li>
+<li>path to file with corrected points is hard coded and different from original. Names will not be changed. (maybe some sort of flag will<code>data/gpx</code></li>
+</ul>
+
+
+</p>
+
+<script type="text/javascript">
+// Prefer page to start at top when reloaded. RMD 
+// Thanks to https://stackoverflow.com/a/26837814
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>

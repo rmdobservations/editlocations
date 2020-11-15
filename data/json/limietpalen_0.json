@@ -1,0 +1,136 @@
+{
+"type": "FeatureCollection",
+"features": [
+{
+"type": "Feature",
+"id" : "0" ,
+"properties": {
+"name" : "pal01.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16666666666667 , 52.0602777777778 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "1" ,
+"properties": {
+"name" : "pal05.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16916666666667 , 52.0608333333333 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "2" ,
+"properties": {
+"name" : "pal09.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.17138888888889 , 52.0591666666667 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "3" ,
+"properties": {
+"name" : "pal13.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.17166666666667 , 52.0577777777778 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "4" ,
+"properties": {
+"name" : "pal14.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.17055555555556 , 52.0569444444444 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "5" ,
+"properties": {
+"name" : "pal15.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.17 , 52.0572222222222 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "6" ,
+"properties": {
+"name" : "pal16.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16833333333333 , 52.0561111111111 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "7" ,
+"properties": {
+"name" : "pal20.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16527777777778 , 52.0558333333333 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "8" ,
+"properties": {
+"name" : "pal22.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16527777777778 , 52.0566666666667 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "9" ,
+"properties": {
+"name" : "pal23.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16333333333333 , 52.0583333333333 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "10" ,
+"properties": {
+"name" : "pal24.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16388888888889 , 52.0586111111111 ]
+}
+}
+,
+{
+"type": "Feature",
+"id" : "11" ,
+"properties": {
+"name" : "pal25.500px.jpg"
+},
+"geometry": { "type": "Point",
+"coordinates": [ 5.16472222222222 , 52.0588888888889 ]
+}
+}
+]
+}

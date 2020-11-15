@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Local github Edit Points</title>
+   <link rel="stylesheet" type="text/css" href="css/reset.css">
+ <link rel="stylesheet" type="text/css" href="css/main.css"> 
+
+
+   <link rel="stylesheet" type="text/css" href="css/editpoints.css">  
+
+        <link rel="stylesheet" src="js/v4.6.5/css/ol.css" type="text/css"> 
+
+
+   
+    
+    
+<!-- Based on OpenLayers 3 Beginner's GuideCopyright © 2015 Packt Publishing-->
+  <script src="js/v4.6.5/ol-debug.js"></script>
+  <script src="js/jquery.min.js"></script>
+<script src="js/jquery.cycle2.js"></script> 
+    <script src="js/filenamemethod.js"></script> 
+
+    <script src="js/editpointstyles.js"></script> 
+    <script src="js/editpoints.js"></script> 
+   <style type="text/css">
+#statusmessage {
+color: red;
+}
+   </style>
+  </head>
+  <body>
+<div id="headercontainer"> 
+
+
+<div class="headertext">
+  <p><a href="index.html" target="_blank">back to map index </a></p>
+
+  <h2>Edit Foto locations</h2>
+<p>Assume project files are in directory <code>/data/json/</code>
+ (If not, see <a href="index.html#jsonreadme" target="_blank">
+ Preparation of json file</a></p>
+<p>
+Select json file from directory. If initial location has not been chosen, zoom map out until points 
+are visible. Fotos with no coordinates have been set to the Houten train station. </p>
+<p>First image of project should appear in slide show.</p>
+<p>Click on any point and corresponding  thumbnail will show in the slide show</p>
+<p>If coordinates are not correct, left click once on point (color will change). </p>
+<p>Then left mouse press and  move it to correct place </p>
+<p> write new json file with same prefix but with version number. 
+(Need to account for several editing sessions for one json file. Automatic extensions). Initial versin number is set to zero.</p>
+
+</div> 
+ <div style="clear: both;"></div> 
+
+</div>
+  
+
+   <div class="panelcontent">
+    <div id="map" class="map"></div>
+</div>
+
+
+
+  <div class="panelcontent">
+  <p>Center of map is extracted from feature information</p>
+    <p>Select json file : <input type="file" id="handlerfiles"  /><br>
+    Make sure all buttons are unselected by clicking on the map. <br>
+<button id="writedatatofile" type="submit">Write file </button>  <br>
+<div id="statusmessage"></div>
+<!-- <button id="newlayer" type="submit">Show new points </button> <br> -->
+
+
+<!-- Slideshow -->
+<div class="center_element">
+<div class="dom_element"></div>
+</div>
+<a id="prev" href=#><span class="arrows">Prev</span></a>
+<a id="next" href=#><span class="arrows">Next</span></a>  
+<div id="custom-caption" class="center"></div>
+</div>
+
+<script type="text/javascript">
+
+var pointerSize = parseInt($("#next").css("width"));
+
+let buttonTop = $(".center_element").css("height") + parseInt(pointerSize);
+
+
+$("#prev").css("top",parseInt(buttonTop));
+$("#next").css("top",parseInt(buttonTop));
+var buttonLeft = $(".center_element").width() 
+$("#prev").css("right",buttonLeft);
+var buttonRight = 0;
+$("#next").css("right",buttonRight);
+
+
+$("#next").click(function(){
+    $(".scroll-pane").scrollTop(0);
+}); 
+$("#prev").click(function(){
+	console.log("Click on prev");
+    $(".scroll-pane").scrollTop(0);
+}); 
+/* text height has to be function of foto size but stay within slide-container */
+
+
+
+
+</script> 
+ 
+
+ 
+ 
+  </body>
+</html>

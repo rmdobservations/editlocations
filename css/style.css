@@ -1,0 +1,17 @@
+.boundary {
+border-style: solid;
+border-color:blue;
+border-width:4px;
+}
+
+table td {
+border-style: solid;
+border-color:orange;
+border-width:4px;
+}
+
+.tboundary {
+border-style: solid;
+border-color:orange;
+border-width:4px;
+}

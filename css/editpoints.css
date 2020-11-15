@@ -1,0 +1,110 @@
+
+#map {
+width: 500px;
+height: 500px;
+background-color: yellowgreen;
+}
+.center_element {
+	position: relative;
+	width: 300px; 
+	height: 360px;  
+	margin: 0 auto;
+	border: 4px solid green;
+ }
+
+ .dom_element { 
+	position: relative;
+	width: 90%; 
+height: 300px;  
+border: 1px solid cyan;
+margin: 0 auto;
+	 }
+
+
+  .slide_element { 
+  position: absolute;
+	width: 240px; 
+	height: 340px;  
+	margin: 10px;
+	border: 6px solid blue;
+	background-color: pink;
+ }
+.slide_element	 input {
+	width: 90%;	 
+ }
+
+.foto-pane {
+position: relative;
+	background-color: gray;
+ width: 100%;
+ height: 100%;
+
+}
+
+
+ .photo {
+position: relative;
+width: 240px;
+ height: 180px;
+background-size: 100%;
+background-repeat: no-repeat;
+} 
+ 
+  .photo img { 
+ 	display: block;
+	margin: 0 auto;
+	position: relative;
+
+ }
+ .scroll-pane {
+	position: relative;
+	 height: 80px;
+	 width: 220px;
+	overflow-y: auto;
+	background-color: yellow; 
+}
+
+
+ .journal-text {
+ 	position: relative;
+background-color: orange;
+ width: 220px;
+ height: 100px;
+padding: 10px;
+margin: 0 auto;
+}
+ 
+#prev { 
+position: absolute;
+left: 0px; 
+top: 10px;  
+background: url(../icons/arrow-left.png)  
+no-repeat;width: 32px;
+background-color: transparent;
+height: 32px;
+}
+
+#next 
+{ 
+right: 0px; 
+position: absolute; 
+top: 10px;  
+width: 32px;
+height: 32px; 
+background-color: transparent;
+background: url(../icons/arrow-right.png)  no-repeat; 
+	}
+	
+span.arrows { 
+	visibility: hidden;
+	}
+
+.center { 
+text-align: center; 
+
+}
+
+#custom-caption {
+	padding-top: 10%;
+color: red;
+}
