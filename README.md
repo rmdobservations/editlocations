@@ -25,26 +25,26 @@ Points can be shown on a map along with a slide show of images.
 + usefulprefix.json
 
 ### In directory with fotos, 
-+ GPStoJSON.sh usefulprefix description at the command line, i.e. **GPStoJSON.sh meulunterenpad beautifulwalk**  
++ GPStoJSON.sh usefulprefix description at the command line, i.e. `GPStoJSON.sh meulunterenpad beautifulwalk`  
 + Check that json file and thumb file have been created.  
-+ Copy json file and thumb directory to working directory: i.e. **cp -fR meulunterenpad* (localdirectorypath)/editlocations/data/json/**
++ Copy json file and thumb directory to working directory: i.e. `cp -fR meulunterenpad* (localdirectorypath)/editlocations/data/json/`
 
 
 ### In local Browser
 The location of the json file and thumb directory is hard coded as a subdirectory data/json
 
-Run [editpoints] (editpoints.html) from main server directory in Browser. If points are all in the expected location, there is nothing that needs to be done. This json file and direcory of thumbs can be used in subsequent OpenLayers maps.
+Run `editpoints.html` from main server directory in Browser. If points are all in the expected location, there is nothing that needs to be done. This json file and direcory of thumbs can be used in subsequent OpenLayers maps.
 
 There are several cases where something goes wrong with the geolocation. These are presented in Table 1
 
-| Case | example | EXIF geolocation | EXIF date-time | shell program to run |
+| Foto | example | EXIF geolocation | EXIF date-time | shell program to run |
 | -- | -- | -- | -- | -- | 
-| foto with EXIF geolocation and date | 20190831_000353.jpg | Yes| Yes| GPStoJSON.sh |
-| foto with NO geolocation but EXIF date | 20180512_142458.jpg | No | Yes | GPStoJSON.sh with dummy long and lat |
-| foto with wrong geolocation but date is known | mybirthday.jpg | na |  No | Yes GPStoJSON.sh with dummy long and lat |
-| Foto with title is NOT date, no geo | statenisland.png | No | No | NA |
+| EXIF geolocation and date | 20190831_000353.jpg | Yes| Yes| GPStoJSON.sh |
+| NO geolocation but EXIF date | 20180512_142458.jpg | No | Yes | GPStoJSON.sh with dummy long and lat |
+| wrong geolocation but date is known | mybirthday.jpg | na |  No | Yes GPStoJSON.sh with dummy long and lat |
+| no date, no geo | statenisland.png | No | No | Yes GPStoJSON.sh with dummy long and lat and dummy date |
 
-
+The dummy locations can be corrected in the `editpoints.html` tool. Note that this is different from some tools which allow creating a point from within Openlayers. Rather than writing a new tool  I just need to move the points. 
 
 ### Privacy Caution
 Some information is sensitive and should not be published. 
