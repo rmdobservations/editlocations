@@ -13,7 +13,7 @@ There are two steps.
 + Correcting the locations using the editpoints tool.
 
 # Final product
-Final product is a JSON formatted file. For example, See [rmdobservations/limietPalen_FortVechten](../rmdobservations.github.io/limietPalen_FortVechten/index.html).
+Final product is a JSON formatted file. For example, See [limietPalen_FortVechten](https://rmdobservations.github.io/limietPalen_FortVechten/index.html).
 Points can be shown on a map along with a slide show of images.
 
 # Work Flow
